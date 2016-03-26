@@ -5,6 +5,14 @@ from decorators import print_time
 
 class QuickSort(object):
 	"""docstring for QuickSort"""
+	
+	instance = None
+
+	def __new__(cls, L=None):
+		if cls.instance is None:
+			cls.instance = super(QuickSort, cls).__new__(cls)
+		return cls.instance
+
 	def __init__(self):
 		super(QuickSort, self).__init__()
 
@@ -59,6 +67,8 @@ class QuickSort(object):
 
 		#The right caret becomes a divisor
 		divisor = right_caret
+
+		MULTIPROCESS_TRESHOLD = 2
 
 		# perform the same routine with lists to the left and to the right of the divisor
 		l = self._quickSort(l,start,divisor-1)

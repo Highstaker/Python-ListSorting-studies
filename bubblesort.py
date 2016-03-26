@@ -5,8 +5,18 @@ from decorators import print_time
 
 class BubbleSort(object):
 	"""docstring for BubbleSort"""
-	def __init__(self):
+
+	instance = None
+
+	def __new__(cls, L=None):
+		if cls.instance is None:
+			cls.instance = super(BubbleSort, cls).__new__(cls)
+		return cls.instance
+
+	def __init__(self, L=None):
 		super(BubbleSort, self).__init__()
+		if L:
+			self(L)
 
 	def __call__(self,L):
 		l = L.copy()

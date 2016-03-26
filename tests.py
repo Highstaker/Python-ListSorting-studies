@@ -14,22 +14,30 @@ L2s = sorted(L2)
 
 class TestBubblesort(unittest.TestCase):
 
-	def test_bubblesort(self):
-		# self.assertEqual(BubbleSort()(L1),L1s)
+	def test_bubblesort_class_singleton(self):
+		a = BubbleSort()
+		b = BubbleSort()
+		self.assertEqual(id(a),id(b))
 
-		# print(L2)			
+	def test_bubblesort(self):
+
+		self.assertEqual(BubbleSort()(L1),L1s)
+
 		self.assertEqual(BubbleSort()(L2),L2s)
-		# print(L2)			
 
 
 class TestQuicksort(unittest.TestCase):
+
+	def test_quicksort_class_singleton(self):
+		a = QuickSort()
+		b = QuickSort()
+		self.assertEqual(id(a),id(b))
+
 	def test_quicksort(self):
-		# self.assertEqual(QuickSort()(L1),L1s)
+		self.assertEqual(QuickSort()(L1),L1s)
 
 		for i in range(1):
-			# print(L2)
 			self.assertEqual(QuickSort()(L2),L2s)
-		# print(L2)
 
 
 
