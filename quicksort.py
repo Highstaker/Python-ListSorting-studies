@@ -1,7 +1,7 @@
 #!/usr/bin/python3 -u
 # -*- coding: utf-8 -*-
 import sys
-from decorators import print_time
+from decorators import print_time, Profile
 
 class QuickSort(object):
 	"""docstring for QuickSort"""
@@ -20,11 +20,12 @@ class QuickSort(object):
 		l = L.copy()
 		return self.quickSort(l)
 
+	@Profile
 	@print_time
 	def quickSort(self,l):
 		l_len = len(l)
 
-		#Have to set a big recursion limit, or the program crashes.
+		# Have to set a big recursion limit, or the program crashes.
 		initial_limit = sys.getrecursionlimit()
 		temp_limit = l_len*10
 		if temp_limit > initial_limit:
@@ -32,6 +33,7 @@ class QuickSort(object):
 
 		result = self._quickSort(l,0,l_len-1)
 
+		# Set the limit back
 		sys.setrecursionlimit(initial_limit)
 
 		return result

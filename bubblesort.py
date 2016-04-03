@@ -1,7 +1,7 @@
 #!/usr/bin/python3 -u
 # -*- coding: utf-8 -*-
 
-from decorators import print_time
+from decorators import print_time, Profile
 
 class BubbleSort(object):
 	"""docstring for BubbleSort"""
@@ -23,6 +23,7 @@ class BubbleSort(object):
 		return self.bubbleSort(l)
 
 	@classmethod
+	# @Profile
 	@print_time
 	def bubbleSort(cls,l):
 		while True:
