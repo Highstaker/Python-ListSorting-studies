@@ -5,13 +5,16 @@ from random import randint
 from bubblesort import BubbleSort
 from quicksort import QuickSort
 from mergesort import MergeSort
+from heapsort import HeapSort
+from minmaxsearchsort import MinMaxSearchSort
 
-RANDOM_LIST_LENGTH = 5000
+RANDOM_LIST_LENGTH = 3000
 
 L1 = [2,7,3,1,8,5,6,4]
 L1s = sorted(L1)
 L2 = [randint(1, 10000000) for i in range(RANDOM_LIST_LENGTH)]
 L2s = sorted(L2)
+
 
 class TestBubblesort(unittest.TestCase):
 
@@ -53,6 +56,32 @@ class TestMergesort(unittest.TestCase):
 
 		for i in range(1):
 			self.assertEqual(MergeSort()(L2), L2s)
+
+class TestHeapsort(unittest.TestCase):
+
+	def test_heapsort_class_singleton(self):
+		a = HeapSort()
+		b = HeapSort()
+		self.assertEqual(id(a),id(b))
+
+	def test_heapsort(self):
+		self.assertEqual(HeapSort()(L1), L1s)
+
+		for i in range(1):
+			self.assertEqual(HeapSort()(L2), L2s)
+
+class TestMinmaxsearchsort(unittest.TestCase):
+
+	def test_Minmaxsearchsort_class_singleton(self):
+		a = HeapSort()
+		b = HeapSort()
+		self.assertEqual(id(a),id(b))
+
+	def test_Minmaxsearchsort(self):
+		self.assertEqual(MinMaxSearchSort()(L1), L1s)
+
+		for i in range(1):
+			self.assertEqual(MinMaxSearchSort()(L2), L2s)
 
 if __name__ == '__main__':
 	unittest.main()

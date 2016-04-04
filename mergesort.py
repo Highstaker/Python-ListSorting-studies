@@ -86,3 +86,7 @@ class MergeSort(object):
 			return [l[0]] + self._merger(l[1:], r)
 		else:
 			return [r[0]] + self._merger(l, r[1:])
+
+if __name__ == '__main__':
+	L1 = [2,7,3,1,8,5,6,4]
+	print(MergeSort()(L1))
